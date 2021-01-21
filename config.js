@@ -1,15 +1,11 @@
 module.exports = {
     development: {
-        MONGO_HOST: 'localhost',
-        MONGO_USERNAME: 'admin',
-        MONGO_PASSWORD: 'secret',
+        MONGO_HOST: 'mongo',
         MONGO_PORT: 27017,
-        MONGO_DATABASE: 'biobank_auth'
+        MONGO_DATABASE: 'mikomarketplace'
     },
     production: {
         MONGO_HOST,
-        MONGO_USERNAME,
-        MONGO_PASSWORD,
         MONGO_PORT,
         MONGO_DATABASE
     } = process.env
