@@ -66,12 +66,12 @@ exports.update = async (req, res) => {
 }
 
 exports.delete = (req, res) => {
-    const { id } = req.params;
-    try {
-        await Book.deleteOne({ _id: id });
-        res.status(200).json({ message: 'delete successful' });
-    } catch (err) {
-        res.status(500).json(err);
-    }
+    // const { id } = req.params;
+    // try {
+    //     await Book.deleteOne({ _id: id });
+    //     res.status(200).json({ message: 'delete successful' });
+    // } catch (err) {
+    //     res.status(500).json(err);
+    // }
 }
 

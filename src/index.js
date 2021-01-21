@@ -1,18 +1,18 @@
 const express = require('express')
-var bodyParser = require('body-parser')
+const cors = require('cors')
+const bodyParser = require('body-parser')
 const compression = require('compression')
 const mongoose = require('mongoose');
-
-const bookRouter = require('./api_web/routes/book-route')
-
 const connect = require('./api/database')
 const helmet = require('helmet')
 const app = express()
-const port = 3000
+app.use(cors());
+
+const bookRouter = require('./api_web/routes/book-route')
 
 connect(mongoose)
 
-app.use(bodyParser.json());
+app.use(bodyParser.json())
 app.use(compression())
 app.use(helmet())
 
@@ -22,6 +22,7 @@ app.get('/', (req, res) => {
 
 app.use('/book', bookRouter)
 
+const port = 3000
 app.listen(port, () => {
     console.log(`App is listening at http://localhost:${port}`)
 })
