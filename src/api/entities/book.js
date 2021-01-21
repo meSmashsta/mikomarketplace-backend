@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const { v4: uuidv4 } = require('uuid');
 
 const bookSchema = mongoose.Schema({
-    _id: { type: String, default: uuidv4() },
+    _id: { type: String, default: uuidv4 },
     title: String,
     isbpn: String,
     author: String,
