@@ -1,4 +1,4 @@
-# mikomarketplace
+# mikomarketplace api
 
 A RESTful API built on top of NodeJS + ExpressJS
 
