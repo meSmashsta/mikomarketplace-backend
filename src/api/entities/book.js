@@ -3,9 +3,18 @@ const { v4: uuidv4 } = require('uuid');
 
 const bookSchema = mongoose.Schema({
     _id: { type: String, default: uuidv4() },
-    name: String,
+    title: String,
+    isbpn: String,
+    author: String,
+    description: String,
+    category: String,
+    edition: String,
+    publisher: String,
+    publishedDate: { type: Date },
+    officialUrl: String,
     price: Number,
-    description: String
-})
+}, { 
+    timestamps: true 
+});
 
-module.exports = mongoose.model('Book', bookSchema)
+module.exports = mongoose.model('Book', bookSchema);

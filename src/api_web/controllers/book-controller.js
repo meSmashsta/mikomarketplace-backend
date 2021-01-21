@@ -8,19 +8,29 @@ exports.detail = (req, res) => {
 
 }
 
-exports.create = (req, res) => {
-    const product = new Book({
-        name: req.body.name,
-        price: req.body.price,
-        description: req.body.description
-    })
-    product
-        .save()
-        .then(result => {
-            console.log(result);    
-        })
-        .catch(err => console.log(err))
-    res.status(201).send()
+exports.create = async (req, res) => {
+    const { 
+        title, 
+        isbpn, 
+        author, 
+        description, 
+        category, 
+        edition, 
+        publisher, 
+        publishedDate, 
+        officialUrl, 
+        price 
+    } = req.body;
+
+    const book = new Book({
+        title, isbpn, author, description, category, edition, publisher, publishedDate, officialUrl, price
+    });
+
+    try {
+        res.status(201).json(await book.save());
+    } catch (err) {
+        res.status(422).json(err);
+    }
 }
 
 exports.update = (req, res) => {
