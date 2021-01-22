@@ -6,4 +6,7 @@ COPY package*.json ./
 
 RUN npm install
 
+COPY wait-for-it.sh ./
+RUN chmod 0755 *.sh
+
 COPY . .
